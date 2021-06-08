@@ -1,0 +1,36 @@
+{
+  "name": "apireactapp",
+  "version": "1.0.0",
+  "description": "React app with API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo $test$"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sanganu/apireactapp.git"
+  },
+  "keywords": [
+    "React",
+    "app",
+    "API",
+    "GraphQL"
+  ],
+  "author": "Sangeetha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sanganu/apireactapp/issues"
+  },
+  "homepage": "https://github.com/Sanganu/apireactapp#readme",
+  "dependencies": {
+    "apollo-server-express": "^2.25.0",
+    "axios": "^0.19.2",
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
