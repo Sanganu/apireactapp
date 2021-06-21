@@ -1,0 +1,31 @@
+{
+  "name": "apireactapp",
+  "version": "1.0.0",
+  "description": "MERN stack app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "develop": "concurrently \"nodemon ./server/server.js\"  \"cd ./client && npm start\"",
+    "build": "cd client && npm run build",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sanganu/apireactapp.git"
+  },
+  "keywords": [
+    "Express",
+    "MongoDB"
+  ],
+  "author": "Sangeetha K",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sanganu/apireactapp/issues"
+  },
+  "homepage": "https://github.com/Sanganu/apireactapp#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.7"
+  }
+}
