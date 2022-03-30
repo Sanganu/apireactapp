@@ -1,5 +1,5 @@
 const dbORM = require('mongoose')
-dbORM.connect(process.env.MONGO_URI || "mongodb://localhost/youtubeapp",{
+dbORM.connect(process.env.MONGO_URI || "mongodb://localhost/graphqldemoapp",{
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
