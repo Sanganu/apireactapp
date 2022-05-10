@@ -1,40 +1,82 @@
-const express= require("express")
-const { ApolloServer, gql } = require('apollo-server-express');
+
+const express = require("express")
 const PORT = process.env.PORT || 8080;
 const app = express()
-const db = require("./connection")
+const fs = require("fs")
 
-app.use(express.urlencoded({extended:true}))
+const graphql = require("graphql")
+const { GraphQLObjectType, GraphQLSchema, GraphQLInt, GraphQLString, GraphQLList,GraphQLNonNull } = require("graphql")
+const { graphqlHTTP } = require("express-graphql")
+
+
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static("public"))
-app.use(require("./routes"))
+
+let db = [].concat(JSON.parse(fs.readFileSync("./data/employeeDB.json")));
+
+const EmployeeType = new GraphQLObjectType({
+    name:'Employee',
+    description: 'Employee JSON data type',
+    fields:() =>({
+    id: { type: GraphQLNonNull(GraphQLInt) },
+    JobTitle: { type: GraphQLNonNull(GraphQLString) },
+    EmailAddress: { type: GraphQLString },
+    FirstNameLastName: { type: GraphQLString }
+    })
+})
+
+const  RootQueryType = new GraphQLObjectType({
+    name: "Query",
+    description: "Root Query Type",
+    fields: () => ({
+       getEmployeesDB:{
+           type:new GraphQLList(EmployeeType),
+           description: "Get All records",
+           resolve:() => db
+       }
+    })
+})
 
 
+// const Mutation = new GraphQLObjectType({
+//     name: "Mutation",
+//     fields: {
+//         createUser: {
+//             type: EmployeeType,
+//             args: {
+//                 JobTitle: { type: GraphQLString },
+//                 EmailAddress: { type: GraphQLString },
+//                 FirstNameLastName: { type: GraphQLString }
+//             },
+//             resolve(parent, args) {
+//                 console.log(...args)
+//                 db.push({ ID: db.length + 1, ...args })
+//                 return args
+//             }
+//         }
+//     }
+// });
 
-// Apollo-Grapql
-async function startApolloServer() {
-    // Construct a schema, using GraphQL schema language
-    
-}    
+//How Graphql knows how our actual data looks like
+const schema = new GraphQLSchema({
+    query: RootQueryType
+   
+})
+app.use('/graphql', graphqlHTTP({
+    schema,
+    graphiql: true
+})) //Graphiql - GUI interface for Graphql queries and mutation setting to false will not enable the GUI
 
-// Start Apollo Server
-const server = new ApolloServer({ typeDefs, resolvers });
- server.start();
-server.applyMiddleware({ app });
 
-
-// production env setup
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
 
 // Start DB and then start app server.
-db.once("open",() => {
-    app.listen(PORT,() => {
-        console.log(`Server listening on PORT http://localhost:${PORT}`);
-        console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
-    })
-});
+
+app.listen(PORT, () => {
+    console.log(`Server listening on PORT http://localhost:${PORT}`);
+    console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
+})
+
 
 
 

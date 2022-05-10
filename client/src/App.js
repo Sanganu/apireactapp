@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 
 //components
 import Emoji from './Emoji';
@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className={cssStyles.header}>
-          <img src={logo} className="App-logo" alt="logo" />
+       
           <h2 className="App-title">
             <Emoji label="danger" emoji="☢" />
             <span> custom-react-scripts </span>
