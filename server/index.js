@@ -110,7 +110,7 @@ const DepartmentType = new GraphQLObjectType({
 
 const EmployeeType = new GraphQLObjectType({
     name: 'Employee',
-    description: "Employee JSON objects",
+    description: "Employee JSON object",
     fields: () => ({
         id:{type: GraphQLNonNull(GraphQLInt)},
         name:{type: GraphQLNonNull(GraphQLString)},
@@ -133,15 +133,19 @@ const RootMutationType = new GraphQLObjectType({
         addEmployee:{
             type: EmployeeType,
             description: "Add new Employee",
-            args: {
+            args: { //When passing args of string type should use "" not single because just like json '' is invalid
+                
                 name:{type: GraphQLNonNull(GraphQLString)},
                 salary:{type:GraphQLFloat},
                 departmentId:{type:GraphQLNonNull(GraphQLInt)},
                     
             },
             resolve:(parent,args) => {
-                employeeValues.push({id:employeeValues.length,name:args.name,salary:args.salary,departmentId:args.departmentId})
-                return employeeValues
+                const newEmployee= {id:employeeValues.length+1,name:args.name,
+                    salary:args.salary,departmentId:args.departmentId}
+                    console.log(newEmployee,"NE")
+                employeeValues.push(newEmployee)
+                return newEmployee
             }
         }
     })

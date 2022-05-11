@@ -13,7 +13,6 @@
 [JSON Data API](https://www.onlinedatagenerator.com/)
 
 #### Developed By:
-Sangeetha K
 
 Senior Tutor & Grader
 Trilogy Education.
