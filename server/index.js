@@ -147,6 +147,18 @@ const RootMutationType = new GraphQLObjectType({
                 employeeValues.push(newEmployee)
                 return newEmployee
             }
+        },
+        addDepartment:{
+            type:DepartmentType,
+            description:"Add new department",
+            args:{
+             department_name:{type: GraphQLNonNull(GraphQLString)}   
+            },
+            resolve:(parent,args) => {
+                const newDepartment = {id:departmentValues.length+1,department_name:args.department_name}
+                departmentValues.push(newDepartment)
+                return newDepartment
+            }
         }
     })
 })
