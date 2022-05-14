@@ -164,7 +164,7 @@ const RootMutationType = new GraphQLObjectType({
 })
 const RootQueryValue = new GraphQLObjectType({
     name: "Query",
-    description: "Employee data display",
+    description: "Employee data and Department data display",
     fields:() => ({ // Here the fields is like a function if you change to fields: { } like a variable - then it will throw error - Booktype needs Author type - Author type needs Book type andhence it will give undefined for that reason we have it as function
         //Query - FindAll        
        displayEmployees:{
@@ -209,5 +209,5 @@ app.use("/graphql",graphqlHTTP({
 
 
 app.listen(PORT,()=>{
-    console.log("Graphql and express basic setup")
+    console.log(`Graphql and express basic setup http://localhost:${PORT}/graphql`)
 })

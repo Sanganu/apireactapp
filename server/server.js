@@ -1,6 +1,6 @@
 
 const express = require("express")
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 const app = express()
 const fs = require("fs")
 
@@ -13,54 +13,62 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static("public"))
 
-let db = [].concat(JSON.parse(fs.readFileSync("./data/employeeDB.json")));
+let db = require("./data/employeeDB.json")
 
+// console.log(db)
 const EmployeeType = new GraphQLObjectType({
     name:'Employee',
     description: 'Employee JSON data type',
     fields:() =>({
-    id: { type: GraphQLNonNull(GraphQLInt) },
+    ID: { type: GraphQLNonNull(GraphQLInt) },
     JobTitle: { type: GraphQLNonNull(GraphQLString) },
-    EmailAddress: { type: GraphQLString },
-    FirstNameLastName: { type: GraphQLString }
+    EmailAddress: { type:GraphQLNonNull(GraphQLString) },
+    FirstNameLastName: { type: GraphQLNonNull(GraphQLString) }
     })
 })
 
 const  RootQueryType = new GraphQLObjectType({
     name: "Query",
-    description: "Root Query Type",
+    description: "Root Query to get data from db",
     fields: () => ({
        getEmployeesDB:{
            type:new GraphQLList(EmployeeType),
-           description: "Get All records",
+           description: "Get All employee records from db.json",
            resolve:() => db
        }
     })
 })
 
 
-// const Mutation = new GraphQLObjectType({
-//     name: "Mutation",
-//     fields: {
-//         createUser: {
-//             type: EmployeeType,
-//             args: {
-//                 JobTitle: { type: GraphQLString },
-//                 EmailAddress: { type: GraphQLString },
-//                 FirstNameLastName: { type: GraphQLString }
-//             },
-//             resolve(parent, args) {
-//                 console.log(...args)
-//                 db.push({ ID: db.length + 1, ...args })
-//                 return args
-//             }
-//         }
-//     }
-// });
+const RootMutation = new GraphQLObjectType({
+    name: "Mutation",
+    description:"Create Update Delete operations",
+    fields:() =>({
+        createUser: {
+            type: EmployeeType,
+            description:"Create a new User",
+            args: {
+                JobTitle: { type: GraphQLString },
+                EmailAddress: { type: GraphQLString },
+                FirstNameLastName: { type: GraphQLString }
+            },
+            resolve:(parent, args) =>{
+                
+                const newUser = { ID: db.length + 1, 
+                    JobTitle:args.JobTitle,
+                 EmailAddress:args.EmailAddress,
+                FirstNameLastName:args.FirstNameLastName }
+                db.push(newUser)
+                return newUser
+            }
+        }
+    })
+});
 
 //How Graphql knows how our actual data looks like
 const schema = new GraphQLSchema({
-    query: RootQueryType
+    query: RootQueryType,
+    mutation: RootMutation
    
 })
 app.use('/graphql', graphqlHTTP({
