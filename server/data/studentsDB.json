@@ -1,0 +1,62 @@
+ [
+    {
+        "id":1,
+        "name":"Tom",
+        "tuition" :122495,
+       "department":1
+    },
+    {
+        "id":2,
+        "name":"Bomy",
+        "tuition" :812324,
+       "department":3
+    },
+    {
+        "id":3,
+        "name":"Som",
+        "tuition" :52324,
+       "department":2
+    },
+    {
+        "id":4,
+        "name":"Aom",
+        "tuition" :12394,
+       "department":4
+    },
+    {
+        "id":5,
+        "name":"Uom",
+        "tuition" :12224,
+       "department":2
+    },
+    {
+        "id":6,
+        "name":"Pom",
+        "tuition" :91224,
+       "department":1
+    },
+    {
+        "id":7,
+        "name":"Lim",
+        "tuition" :812324,
+       "department":3
+    },
+    {
+        "id":9,
+        "name":"Pomp",
+        "tuition" :82324,
+       "department":2
+    },
+    {
+        "id":10,
+        "name":"Fooom",
+        "tuition" :52394,
+       "department":4
+    },
+    {
+        "id":5,
+        "name":"Rpom",
+        "tuition" :42224,
+       "department":2
+    }
+]

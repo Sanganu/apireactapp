@@ -1,3 +1,5 @@
 node_modules
 filesnotused
 graphiql.js
+graphiql_index.js
+graphiql_server.js
