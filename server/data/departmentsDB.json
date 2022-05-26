@@ -2,18 +2,18 @@
  [
     {
         "id": 1,
-        "department_name":"Marketing"
+        "department_name":"Math"
     },
     {
         "id": 2,
-        "department_name":"Sales"
+        "department_name":"Science"
     },
     {
         "id": 3,
-        "department_name":"Production"
+        "department_name":"Psychology"
     },
     {
         "id": 4,
-        "department_name":"Technology"
+        "department_name":"Engineering"
     }
 ]
