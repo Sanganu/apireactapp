@@ -14,8 +14,6 @@ const EmployeeType = new GraphQLObjectType({
     })
 })
 
-
-
 const DepartmentType = new GraphQLObjectType({
     name: 'Department',
     description: 'Department array of JSON ',
@@ -24,7 +22,7 @@ const DepartmentType = new GraphQLObjectType({
         department_name:{type: GraphQLNonNull(GraphQLString)},
         students:{
             type: new GraphQLList(StudentType),
-            resolve: (depart)=> studentValues.filter(e => e.departmentId === depart.id)
+            resolve: (department)=> studentValues.filter(s => s.department === department.id)
         }
     })
 })
@@ -36,22 +34,15 @@ const StudentType = new GraphQLObjectType({
         id:{type: GraphQLNonNull(GraphQLInt)},
         name:{type: GraphQLNonNull(GraphQLString)},
         tuition :{type:GraphQLFloat},
-        departmentId:{type:GraphQLNonNull(GraphQLInt)},
         department:{
             type:DepartmentType,
             resolve: (student) => { //student - is the parent. where we need to use the Id from the parent and find the department details
-                return departmentValues.find(department => department.id === student.departmentId)
+                return departmentValues.find(department => department.id === student.department)
 
             }
         }
     })
 })
-
-
-
-
-
-
 
 const RootQueryValue = new GraphQLObjectType({
     name: "Query",
@@ -70,25 +61,31 @@ const RootQueryValue = new GraphQLObjectType({
        },
        //Query - Find by parameter
        getstudent:{
-        type: StudentType,
-        description:"Get specific student data",
-        args:{
-            id:{type:GraphQLInt}
-        },
-        resolve: (parent,args) => studentValues.find(e => e.id === args.id)
+            type: StudentType,
+            description:"Get specific student data",
+            args:{
+                id:{type:GraphQLInt}
+            },
+            resolve: (parent,args) => studentValues.find(s => s.id === args.id)
        },
        getDepartment:{
-        type: DepartmentType,
-        description:"Get specific department value",
-        args:{
-            id:{type:GraphQLInt}
-        },
-        resolve: (parent,args)=>departmentValues.find(e => e.id === args.id)
+            type: DepartmentType,
+            description:"Get specific department value",
+            args:{
+                id:{type:GraphQLInt}
+            },
+            resolve: (parent,args)=>{
+            let deptRecord =  departmentValues.find(d => d.id === args.id)
+            let studentRecords = studentValues.find(s => s.department === args.id)
+            deptRecord.students = studentRecords
+            console.log(deptRecord,studentRecords)
+            return deptRecord;
+            }
        },
        getEmployeesDB:{
-        type:new GraphQLList(EmployeeType),
-        description: "Get All employee records from db.json",
-        resolve:() => db
+            type:new GraphQLList(EmployeeType),
+            description: "Get All employee records from db.json",
+            resolve:() => db
       }
     })
 })
@@ -104,12 +101,12 @@ const RootMutationType = new GraphQLObjectType({
                 
                 name:{type: GraphQLNonNull(GraphQLString)},
                 tuition :{type:GraphQLFloat},
-                departmentId:{type:GraphQLNonNull(GraphQLInt)},
+                department:{type:GraphQLNonNull(GraphQLInt)},
                     
             },
             resolve:(parent,args) => {
                 const newstudent= {id:studentValues.length+1,name:args.name,
-                    tuition :args.tuition ,departmentId:args.departmentId}
+                    tuition :args.tuition ,department:args.department}
                     console.log(newstudent,"NE")
                 studentValues.push(newstudent)
                 return newstudent

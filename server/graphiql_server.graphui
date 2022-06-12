@@ -1,0 +1,19 @@
+`query{
+    getEmployeesDB{
+      JobTitle
+      ID
+      EmailAddress
+      FirstNameLastName
+    }
+  }
+  
+  mutation{
+   createUser(JobTitle:"Front End Developer",
+    EmailAddress:"telsts@mail.com",
+    FirstNameLastName:"Adding new Employee"){
+    JobTitle
+    ID
+    EmailAddress
+    FirstNameLastName
+  } 
+  }`

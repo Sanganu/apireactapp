@@ -16,7 +16,7 @@
 
 ![Screen1](./Screenshots/Capture3.PNG)
 
-![Mutationapollo](./Screenshots/mutationapollo.PNG)
+![Mutation](Screenshots/mutationapollo.PNG)
 
 
 ![sc 1  ](./Screenshot/screehsot1.PNG)

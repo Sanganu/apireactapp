@@ -1,0 +1,58 @@
+query{
+  displaystudents{
+    id
+    name
+    tuition
+    department {
+      id
+      department_name
+    }
+  }
+
+ displayDepartments{
+  id
+  department_name
+  students{
+    id
+    name
+    tuition
+  }
+ }
+  getDepartment(id:3){
+    id
+    department_name
+    students{
+      id
+      name
+      tuition
+      
+    }
+  }
+  getstudent(id:4){
+    id
+    name
+    tuition
+    department{
+      id
+      department_name
+    }
+  }
+  
+}
+
+mutation{
+  addstudent(name:"Sandhya",tuition:28346,department:1){
+    id
+    name
+    tuition
+    department{
+      id
+      department_name
+    }
+  }
+  
+  addDepartment(department_name:"Law"){
+    id
+    department_name
+  }
+}
