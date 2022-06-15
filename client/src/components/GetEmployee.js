@@ -68,15 +68,15 @@ const GetEmployee = () => {
 
     return (<main className="table-container">
 
-        <form className="container block">
+        <form className="section is-info">
             <h6 className="px-6">GraphQL Endpoint -Employee Data  <spam>query - getEmployeesDB / mutation - addEmployeee</spam></h6>
             <label>Employee Name</label>
-            <input placeholder="Username" name="FirstNameLastName" value={empDetails.FirstNameLastName} onChange={handleInputChange} />
+            <input name="FirstNameLastName" value={empDetails.FirstNameLastName} onChange={handleInputChange} />
 
             <label>Email Adresss</label>
-            <input placeholder="Tuition" name="EmailAddress" type="text" value={empDetails.EmailAddress} onChange={handleInputChange} />
+            <input  name="EmailAddress" type="text" value={empDetails.EmailAddress} onChange={handleInputChange} />
             <label>JobTitle</label>
-            <input onChange={handleInputChange} value={empDetails.JobTitle} name="JobTitle" placeholder="JobTitle" type="text"/>
+            <input onChange={handleInputChange} value={empDetails.JobTitle} name="JobTitle" type="text"/>
             <button className="button is-primary"
                 onClick={addEmployee}>Save Employee</button>
         </form>

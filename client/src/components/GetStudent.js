@@ -70,7 +70,7 @@ const GetStudent = () => {
     }
 
     return (<main className="table-container">
-    <form className="container block">
+    <form className="section is-primary">
     <h6 className="px-6">GraphQL Endpoint -Student Data  <spam>query - displaystudents /mutation - addstudent</spam></h6>
             <label>Name</label>
              <input placeholder="Username" name="name" value={form.name} onChange={handleInputChange} />
