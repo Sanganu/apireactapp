@@ -29,7 +29,7 @@ const GetDepartment = () => {
     }, [])
 
     return (<main className="table-container">
-     <h6>GraphQL endpoint - <span></span></h6>
+     <h6>GraphQL endpoint<span> - displayDepartments query</span></h6>
         <table className="table is-striped is-fullwidth">
             <thead>
                 <tr>
@@ -42,12 +42,12 @@ const GetDepartment = () => {
             </thead>
             <tbody>
 
-                {DepartmentData.map((Department, key) => <tr>
-                    <th>{Department.id}</th>
-                    <th>{Department.department_name}</th>
+                {DepartmentData.map((Department, key) => <tr key={key}>
+                    <td>{Department.id}</td>
+                    <td>{Department.department_name}</td> 
                     {/* {Department.student.reduce((total,element) => (total+element.tuition) )} */}
-                    <th></th>
-                    <th>{Department.student.length}</th>
+                    <td></td>
+                    <td>{Department.student}</td>
                 </tr>)}
             </tbody>
 

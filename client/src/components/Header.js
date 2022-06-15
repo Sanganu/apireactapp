@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavTabs from './NavTabs';
-import AddData from './AddData';
+// import AddData from './AddData';
 import Employees from './GetEmployee';
 import Students from './GetStudent';
 import Department from './Departments';
@@ -13,8 +13,8 @@ function Header() {
   // The renderPage method uses a switch statement to render the appropriate current page
   const renderPage = (current) => {
     switch (currentPage) {
-      case 'AddData':
-        return <AddData />;
+      // case 'AddData':
+      //   return <AddData />;
       case 'Employees':
         return <Employees />;
       case 'Students':
@@ -47,8 +47,9 @@ function Header() {
       </header>
 
       {/* Call the renderPage function passing in the currentPage */}
+      <main className="container">
       <div>{renderPage(currentPage)}</div>
-      
+      </main>
    
 
 

@@ -95,7 +95,7 @@ const RootMutationType = new GraphQLObjectType({
     name:'Mutation',
     description: 'Root Mutation',
     fields: () =>({
-        addStudent:{
+        addstudent:{
             type: StudentType,
             description: "Add new student",
             args: { //When passing args of string type should use "" not single because just like json '' is invalid
@@ -110,11 +110,7 @@ const RootMutationType = new GraphQLObjectType({
                     tuition :args.tuition ,department:args.department}
                     console.log(newstudent,"NE")
                 studentValues.push(newstudent)
-                fs.writeFileSync("/data/studentsDB.json",JSON.stringify(studentValues),(err) => {
-                    if (err) throw err;
           
-                    
-                })
                 return newstudent
             }
         },
@@ -139,14 +135,13 @@ const RootMutationType = new GraphQLObjectType({
                 FirstNameLastName: { type: GraphQLString }
             },
             resolve:(parent, args) =>{
-                // const newUser = { ID: db.length + 1, 
-                //     ...args}
+                
                 const newUser = { ID: db.length + 1, 
                     JobTitle:args.JobTitle,
                  EmailAddress:args.EmailAddress,
                 FirstNameLastName:args.FirstNameLastName }
                 db.push(newUser)
-              console.log(db,newUser)
+              
                 return newUser;
             }
         }
