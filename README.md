@@ -22,13 +22,6 @@
 ![Mutation](Screenshots/mutationapollo.PNG)
 
 
-![sc 1  ](./Screenshot/screehsot1.PNG)
-
-![sc 2  ](./Screenshot/screehsot2.PNG)
-
-![sc 3  ](./Screenshot/screehsot3.PNG)
-
-
 
 
 ### Achknowledments
