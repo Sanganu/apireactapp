@@ -1,6 +1,7 @@
 const express = require("express")
 const PORT = process.env.PORT || 8080;
-const app = express()
+const app = express();
+const path = require("path")
 
 const graphql = require("graphql")
 const { GraphQLObjectType, 
