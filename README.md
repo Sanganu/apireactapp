@@ -1,14 +1,17 @@
 
-# Project: GraphQL
+# Project: REACT with GraphQL full-stack app
 # Usage:
 ![GitHub license](https://img.shields.io/badge/license-MIT-red.svg)
 
+## Deployment
+[Live](https://graphqlfetchapp.herokuapp.com/)
 
-* git clone 
-* npm i
+
+### Usage Instructions 
+* npm i 
 * Graphql playground to test all queries and mutations
 
-## Screenshots
+### Screenshots
 
 ![Screen1](./Screenshots/Capture1.PNG)
 
@@ -24,8 +27,6 @@
 ![sc 2  ](./Screenshot/screehsot2.PNG)
 
 ![sc 3  ](./Screenshot/screehsot3.PNG)
-
-
 
 
 

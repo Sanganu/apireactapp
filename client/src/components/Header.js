@@ -27,7 +27,7 @@ function Header() {
         return(<section className="hero is-link is-fullheight-with-navbar">
         <div className="hero-body">
           <p className="title">
-         MERN stack with GraphQL</p>
+         Full-stack app with RECT & GraphQL</p>
          
           <span className="is-size-7 px-2 ml-2">GraphQL Endpoints implemented with fetch</span>
           
