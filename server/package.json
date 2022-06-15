@@ -2,10 +2,10 @@
   "name": "apireactapp",
   "version": "1.0.0",
   "description": "React app with API",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "watch": "nodemon server.js"
+    "start": "node index.js",
+    "watch": "nodemon index.js"
   },
   "repository": {
     "type": "git",

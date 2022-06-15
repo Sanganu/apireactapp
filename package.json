@@ -8,7 +8,7 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "watch": "concurrently \"cd server && npm run watch\"  \"cd client && npm start\"",
     "build": "cd client && npm run build",
-    "start": "node server/server.js"
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
