@@ -29,7 +29,9 @@ const GetDepartment = () => {
     }, [])
 
     return (<main className="table-container">
+    <article className="section has-background-warning-dark p-4 has-text-white-ter">
      <h6>GraphQL endpoint<span> - displayDepartments query</span></h6>
+     </article>
         <table className="table is-striped is-fullwidth">
             <thead>
                 <tr>

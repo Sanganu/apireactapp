@@ -70,17 +70,17 @@ const GetStudent = () => {
     }
 
     return (<main className="table-container">
-    <form className="section is-primary">
-    <h6 className="px-6">GraphQL Endpoint -Student Data  <spam>query - displaystudents /mutation - addstudent</spam></h6>
+    <form className="section has-background-link-dark p-5 has-text-white-ter ">
+    <h6 className="m-3 p-3">GraphQL Endpoint -Student Data  <spam>query - displaystudents /mutation - addstudent</spam></h6>
             <label>Name</label>
-             <input placeholder="Username" name="name" value={form.name} onChange={handleInputChange} />
+             <input className="m-3 p-3" placeholder="Username" name="name" value={form.name} onChange={handleInputChange} />
        
             <label>Tuition</label>
-            <input placeholder="Tuition" name="tuition" type="number" value={form.tuition} onChange={handleInputChange} />
+            <input className="m-3 p-3" placeholder="Tuition" name="tuition" type="number" value={form.tuition} onChange={handleInputChange} />
             <label>
                 Select Department
              </label>
-                <select
+                <select className="m-3 p-3"
                     onChange={handleInputChange}
                     value={form.department}
                     name="department">
@@ -98,8 +98,8 @@ const GetStudent = () => {
                     </option>
                 </select>
       
-            <button className="button is-primary"
-                onClick={addStudent}>Save</button>
+            <button className="button is-primary m-3 p-3"
+                onClick={addStudent}>Save student details</button>
       
         </form>
         <table className="table is-striped is-fullwidth">

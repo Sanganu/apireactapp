@@ -39,7 +39,9 @@ const GetCountry = () => {
         })
     },[])
     return(<main className="table-container">
+  <article className="section has-background-primary-dark p-4 has-text-white-ter">
     <h6>GraphQL endpoint - <span>External Resource "https://countries.trevorblades.com"  query -countries</span></h6>
+    </article>
 <table className="table">
   <thead>
     <tr>

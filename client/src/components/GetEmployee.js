@@ -68,16 +68,16 @@ const GetEmployee = () => {
 
     return (<main className="table-container">
 
-        <form className="section is-info">
-            <h6 className="px-6">GraphQL Endpoint -Employee Data  <spam>query - getEmployeesDB / mutation - addEmployeee</spam></h6>
+        <form className="section has-background-success-dark p-4 has-text-white-ter">
+            <h6 className="m-3 p-3">GraphQL Endpoint -Employee Data  <spam>query - getEmployeesDB / mutation - addEmployeee</spam></h6>
             <label>Employee Name</label>
-            <input name="FirstNameLastName" value={empDetails.FirstNameLastName} onChange={handleInputChange} />
+            <input className="m-3 p-3" name="FirstNameLastName" value={empDetails.FirstNameLastName} onChange={handleInputChange} />
 
             <label>Email Adresss</label>
-            <input  name="EmailAddress" type="text" value={empDetails.EmailAddress} onChange={handleInputChange} />
+            <input className="m-3 p-3" name="EmailAddress" type="text" value={empDetails.EmailAddress} onChange={handleInputChange} />
             <label>JobTitle</label>
-            <input onChange={handleInputChange} value={empDetails.JobTitle} name="JobTitle" type="text"/>
-            <button className="button is-primary"
+            <input className="m-3 p-3" onChange={handleInputChange} value={empDetails.JobTitle} name="JobTitle" type="text"/>
+            <button className="button is-primary m-4 p-4"
                 onClick={addEmployee}>Save Employee</button>
         </form>
         <table className="table is-striped is-fullwidth">
