@@ -1,6 +1,6 @@
 
 # Project: REACT with GraphQL full-stack app
-# Usage:
+
 ![GitHub license](https://img.shields.io/badge/license-MIT-red.svg)
 
 ## Deployment
@@ -17,12 +17,13 @@
 
 ![Screen2](./Screenshots/Capture2.PNG)
 
-![Screen1](./Screenshots/Capture3.PNG)
+![Screen](./Screenshots/Capture3.PNG)
 
 ![Mutation](Screenshots/mutationapollo.PNG)
 
+![Live](Screenshots/deployment.PNG)
 
-
+GraphQL app with retrieval of data  using fetch
 
 ### Achknowledments
 [JSON Data API](https://www.onlinedatagenerator.com/)
